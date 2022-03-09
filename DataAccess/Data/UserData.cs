@@ -2,15 +2,13 @@
 using DataAccess.Models;
 
 namespace DataAccess.Data;
-internal class UserData : IUserData
+public class UserData : IUserData
 {
     private readonly ISqlDataAccess _db;
 
-    public UserData(ISqlDataAccess db)
-    {
+    public UserData(ISqlDataAccess db) =>
         _db = db;
-    }
-
+    
     public Task<IEnumerable<UserModel>> GetUsers() =>
         _db.LoadData<UserModel, dynamic>(storedProcedure: "dbo.spUser_GetAll", new { });
 

@@ -2,7 +2,7 @@
 
 namespace DataAccess.Data;
 
-internal interface IUserData
+public interface IUserData
 {
     Task DeleteUser(int id);
     Task<UserModel?> GetUser(int id);
